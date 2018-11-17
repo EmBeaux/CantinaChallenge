@@ -1,6 +1,10 @@
 # CantinaChallenge
 
+**How to Use**
+
 run -> "**ruby code.rb**" to start the program.
+
+      >Then use
 
 run -> "**rspec**" to test the program.
 
