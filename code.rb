@@ -2,7 +2,7 @@ require 'json'
 require 'pp'
 require 'pry'
 
-json = File.read('object.json')
+json = File.read('/Users/matthewbowler/challenges/CantinaChallenge/object.json')
 @obj = JSON.parse(json)
 puts "Please put enter in an Identifier(ex: #identifier), Class Name(ex: .className), or Class(ex: class). The views will then be returned."
 @element = gets.chomp
@@ -23,15 +23,20 @@ else
 end
 
 
-def parseClassNameFunc(element, starting)
+def parseClassNameFunc(element, starting, parent)
   starting.each do |subview|
     if subview["classNames"] != nil
       if subview["classNames"].include?(element)
         pp subview
         puts "=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+="
         @count += 1
+        if subview["subviews"] != nil
+          parseClassNameFunc(element, subview["subviews"], subview)
+        elsif subview["contentView"] != nil
+          parseClassNameFunc(element, subview["contentView"]["subviews"], subview)
+        end
       else
-        parseClassNameFunc(element, subview["subviews"])
+        parseClassNameFunc(element, subview["subviews"], subview)
       end
     end
   end
@@ -100,7 +105,7 @@ def countTrack
 end
 
 if className == true
-  parseClassNameFunc(@element, @obj["subviews"])
+  parseClassNameFunc(@element, @obj["subviews"], @obj)
   countTrack()
 end
 
