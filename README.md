@@ -1,6 +1,7 @@
 # CantinaChallenge
 
 run -> "**ruby code.rb**" to start the program.
+
 run -> "**rspec**" to test the program.
 
 Use this tool to parse through the object.json file and gather views that match the selected ClassName, Identifier, or Class.
