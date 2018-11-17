@@ -2,17 +2,17 @@
 
 **How to Use**
 
-run > "**bundle install***"
+run >"**bundle install***"
 
-run > "**ruby code.rb**" to start the program.
+run >"**ruby code.rb**" to start the program.
 
-      ->Then type the selector.
+      -> Then type the selector.
 
-      ->Returns every view that matches aforementioned selector.
+      -> Returns every view that matches aforementioned selector.
 
-run > "**rspec**" to test the program.
+run >"**rspec**" to test the program.
 
-      ->5 Tests should pass.
+      -> 5 Tests should pass.
 
 **Features**
 
